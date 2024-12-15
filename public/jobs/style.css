@@ -87,6 +87,25 @@ body {
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .pagination-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-item a {
+  color: #007bff;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
 
   #job-container{
     margin-bottom: 75px;
@@ -102,3 +121,41 @@ body {
       align-items: center;
     }
   }
+
+  /* Style for larger screens */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .pagination {
+    display: block;
+    text-align: center;
+  }
+
+  .pagination .page-item {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  /* Optionally, reduce size of page numbers on small screens */
+  .pagination .page-item a {
+    font-size: 0.8rem;
+  }
+
+  /* Hide extra page numbers for smaller screens */
+  .pagination .page-item:nth-child(n+4) {
+    display: none;
+  }
+}
+
+/* Add styles for the "previous" and "next" buttons on mobile */
+@media (max-width: 576px) {
+  .pagination .page-item a {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+}

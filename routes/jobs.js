@@ -28,7 +28,9 @@ function paginatedResults(model) {
     const endIndex = page * limit;
 
     const results = {};
+    results.totalJobs = model.length;
 
+    
     if (endIndex < model.length) {
       results.next = {
         page: page + 1,
