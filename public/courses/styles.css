@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  width: 100vw;
+}
+
+#courses-list {
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap; /* Wraps cards to a new row */
+  justify-content: space-between; /* Removes right-side gap */
+  gap: 20px; /* Uniform spacing between cards */
+  margin: 20px;
+}
+
+#course-container {
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+
+.course-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 25%; /* Ensures 4 cards per row minus spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-grow: 1;
+  display: flex; /* Added to allow consistent heights */
+  flex-direction: column; /* Content stacks vertically */
+  justify-content: space-between; /* Spreads inner content evenly */
+}
+
+.course-card img {
+  width: 100%; /* Adjust image to fill the width of the card */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.course-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1; /* Fills available space */
+}
+
+.enroll-now {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #5c6bc0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.enroll-now:hover {
+  background-color: #3f4cbb;
+}
+#course-container{
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .course-card {
+    width: calc(33.33% - 20px); /* 3 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card {
+    width: calc(50% - 20px); /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .course-card {
+    width: 100%; /* Full width for mobile screens */
+  }
+}
