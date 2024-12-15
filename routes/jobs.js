@@ -8,46 +8,46 @@ router.get("/", (req, res) => {
 });
 
 
-// router.get("/data", paginatedResults(getJobs()), (req, res) => {
-//   res.json(res.paginatedResults);
-// });
-
-router.get("/data", (req, res) => {
-  res.json(getJobs());
-  
+router.get("/data", paginatedResults(getJobs()), (req, res) => {
+  res.json(res.paginatedResults);
 });
 
+// router.get("/data", (req, res) => {
+//   res.json(getJobs());
+  
+// });
 
 
-// function paginatedResults(model) {
-//   return (req, res, next) => {
-//     const page = parseInt(req.query.page);
-//     const limit = parseInt(req.query.limit);
 
-//     const startIndex = (page - 1) * limit;
-//     const endIndex = page * limit;
+function paginatedResults(model) {
+  return (req, res, next) => {
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit);
 
-//     const results = {};
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
 
-//     if (endIndex < model.length) {
-//       results.next = {
-//         page: page + 1,
-//         limit: limit,
-//       };
-//     }
+    const results = {};
 
-//     if (startIndex > 0) {
-//       results.previous = {
-//         page: page - 1,
-//         limit: limit,
-//       };
-//     }
+    if (endIndex < model.length) {
+      results.next = {
+        page: page + 1,
+        limit: limit,
+      };
+    }
 
-//     results.results = model.slice(startIndex, endIndex);
-// res.paginatedResults= results
-// next()
-//   };
-// }
+    if (startIndex > 0) {
+      results.previous = {
+        page: page - 1,
+        limit: limit,
+      };
+    }
+
+    results.results = model.slice(startIndex, endIndex);
+res.paginatedResults= results
+next()
+  };
+}
 
 
 
